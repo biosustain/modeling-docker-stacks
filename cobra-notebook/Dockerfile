@@ -12,7 +12,7 @@ RUN /opt/conda/envs/python2/bin/pip install bokeh plotly swiglpk lxml
 RUN /opt/conda/envs/python2/bin/pip install python-libsbml
 RUN /opt/conda/envs/python2/bin/pip install git+https://github.com/biosustain/cameo.git@devel#egg=cameo
 
-ADD notebooks/ /home/jovyan/work/notebooks
+ADD cameo-notebooks/ /home/jovyan/work/notebooks
 ADD templates/ /srv/templates/
 RUN chmod a+rX /srv/templates
 CMD ipython notebook
