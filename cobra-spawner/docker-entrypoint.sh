@@ -7,8 +7,8 @@ if [ "$(which "$1")" = "/usr/local/bin/start-singleuser.sh" ]; then
   : ${NOTEBOOK_DIR:=/home/$NB_USER/work}
   if [ ! -d "$NOTEBOOK_DIR/$JPY_USER" ]; then
     mkdir $NOTEBOOK_DIR/$JPY_USER
-    mount -v -t cifs //dtu-storage.win.dtu.dk/$JPY_USER $NOTEBOOK_DIR/$JPY_USER -o username=$JPY_USER,password=$JPY_PASS,sec=ntlm
   fi
+  mount -v -t cifs //dtu-storage.win.dtu.dk/$JPY_USER $NOTEBOOK_DIR/$JPY_USER -o username=$JPY_USER,password=$JPY_PASS,sec=ntlm
 fi
 
 # Run the command provided
