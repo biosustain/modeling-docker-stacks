@@ -8,9 +8,9 @@ RUN pip install \
 # Install packages in Python 2 environment
 RUN $CONDA_DIR/envs/python2/bin/pip install \
   beautifulsoup4==4.4.*
-
 # Use custom startup script
 USER root
 COPY docker-entrypoint.sh /srv/docker-entrypoint.sh
+COPY mount_directory.sh /srv/mount_directory.sh
 ENTRYPOINT ["tini", "--", "/srv/docker-entrypoint.sh"]
 CMD ["start-singleuser.sh"]
