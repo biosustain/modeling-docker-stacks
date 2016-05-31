@@ -13,8 +13,8 @@ COPY requirements.txt requirements.txt
 
 # Install conda
 ADD miniconda.sh miniconda.sh
-RUN bash miniconda.sh -b -p /root/miniconda
-ENV PATH "/root/miniconda/bin:$PATH"
+RUN bash miniconda.sh -b -p /opt/conda
+ENV PATH "/opt/conda/bin:$PATH"
 RUN hash -r
 RUN conda config --set always_yes yes --set changeps1 no
 RUN conda update -q conda
@@ -30,5 +30,6 @@ RUN /opt/conda/envs/python3.4/bin/pip install pip --upgrade
 RUN /opt/conda/envs/python3.4/bin/pip install -r requirements.txt
 
 # For Python 2.7
+RUN conda create -y -n python2 python=2.7 scipy numpy pandas numexpr
 RUN /opt/conda/envs/python2/bin/pip install pip --upgrade
 RUN /opt/conda/envs/python2/bin/pip install -r requirements.txt
