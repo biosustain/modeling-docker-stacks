@@ -10,7 +10,7 @@ RUN pip install pip --upgrade
 RUN pip install -r requirements.txt
 
 # For Python 3.4
-RUN conda create -y -n python3.4 python=3.4 scipy numpy pandas numexpr
+RUN conda create -y -n python3.4 python=3.4 scipy numpy pandas numexpr matplotlib
 RUN /opt/conda/envs/python3.4/bin/pip install pip --upgrade
 RUN /opt/conda/envs/python3.4/bin/pip install -r requirements.txt
 
