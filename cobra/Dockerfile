@@ -18,7 +18,7 @@ ENV PATH "/opt/conda/bin:$PATH"
 RUN hash -r
 RUN conda config --set always_yes yes --set changeps1 no
 RUN conda update -q conda
-RUN conda -y install scipy numpy pandas numexpr matplotlib
+RUN conda install -y scipy numpy pandas numexpr matplotlib
 
 # For Python 3.5 (default)
 RUN pip install pip --upgrade
