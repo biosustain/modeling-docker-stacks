@@ -1,4 +1,4 @@
-cameo[all]==0.6.1
+cameo[all]==0.6.2
 biopython>=1.66
 joblib>=0.9.4
 driven
