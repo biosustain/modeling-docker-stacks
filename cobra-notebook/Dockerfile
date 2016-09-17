@@ -6,6 +6,7 @@ RUN apt-get -y update && apt-get install -y swig libzmq3-dev libgmp-dev libglpk-
 COPY requirements.txt requirements.txt
 
 # For Python 3.5 (default)
+RUN conda install -y scipy numpy pandas numexpr matplotlib
 RUN pip install pip --upgrade
 RUN pip install -r requirements.txt
 RUN python -c "from matplotlib import pyplot"  # build font caches
