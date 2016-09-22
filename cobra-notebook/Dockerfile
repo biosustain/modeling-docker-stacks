@@ -22,10 +22,12 @@ RUN /opt/conda/envs/python2/bin/pip install pip --upgrade
 RUN /opt/conda/envs/python2/bin/pip install -r requirements.txt
 RUN python -c "from matplotlib import pyplot"  # build font caches
 
-USER jovyan
-ADD cameo-notebooks/ /home/jovyan/work/notebooks
-RUN for file in notebooks/*.ipynb; do jupyter trust $file; done
 ADD templates/ /srv/templates/
 RUN chmod a+rX /srv/templates
 RUN jupyter nbextension enable --py  widgetsnbextension
+
+USER jovyan
+ADD cameo-notebooks/ /home/jovyan/work/notebooks
+RUN for file in notebooks/*.ipynb; do jupyter trust $file; done
+
 CMD jupyter notebook
