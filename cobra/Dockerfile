@@ -18,18 +18,18 @@ ENV PATH "/opt/conda/bin:$PATH"
 RUN hash -r
 RUN conda config --set always_yes yes --set changeps1 no
 RUN conda update -q conda
-RUN conda install -y scipy numpy pandas numexpr matplotlib
+RUN conda install -y scipy numpy pandas numexpr matplotlib SIP
 
 # For Python 3.5 (default)
 RUN pip install pip --upgrade
 RUN pip install -r requirements.txt
 
 # For Python 3.4
-RUN conda create -y -n python3.4 python=3.4 scipy numpy pandas numexpr matplotlib
+RUN conda create -y -n python3.4 python=3.4 scipy numpy pandas numexpr matplotlib SIP
 RUN /opt/conda/envs/python3.4/bin/pip install pip --upgrade
 RUN /opt/conda/envs/python3.4/bin/pip install -r requirements.txt
 
 # For Python 2.7
-RUN conda create -y -n python2 python=2.7 scipy numpy pandas numexpr matplotlib
+RUN conda create -y -n python2 python=2.7 scipy numpy pandas numexpr matplotlib SIP
 RUN /opt/conda/envs/python2/bin/pip install pip --upgrade
 RUN /opt/conda/envs/python2/bin/pip install -r requirements.txt
