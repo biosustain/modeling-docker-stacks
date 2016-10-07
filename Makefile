@@ -1,13 +1,13 @@
 OWNER:=biosustain
 
-ALL_STACKS:=cobra-notebook cobra-spawner
+ALL_STACKS:=cameo cameo-solvers
 
 ALL_IMAGES:=$(ALL_STACKS)
 
 GIT_MASTER_HEAD_SHA:=$(shell git rev-parse --short=12 --verify HEAD)
 
 build/%:
-	docker build $(DARGS) --rm -t $(OWNER)/$(notdir $@):latest ./$(notdir $@)
+	docker build $(DARGS) --build-arg GITHUB_TOKEN=$(GITHUB_TOKEN) --rm -t $(OWNER)/$(notdir $@):latest ./$(notdir $@)
 
 tag/%:
 	docker tag $(OWNER)/$(notdir $@):latest $(OWNER)/$(notdir $@):$(GIT_MASTER_HEAD_SHA)
