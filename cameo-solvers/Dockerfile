@@ -1,5 +1,6 @@
 FROM biosustain/cameo:latest
 
+ARG GITHUB_TOKEN
 RUN python load_dependency.py $GITHUB_TOKEN cplex-python3.5.tar.gz
 RUN gzip -d cplex-python3.5.tar.gz
 RUN tar --warning=no-unknown-keyword -xvf cplex-python3.5.tar
