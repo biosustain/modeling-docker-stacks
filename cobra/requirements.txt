@@ -1,4 +1,0 @@
-cameo[all]==0.6.3
-biopython>=1.66
-joblib>=0.9.4
-runipy>=0.1.5
