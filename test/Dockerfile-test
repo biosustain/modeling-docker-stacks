@@ -1,0 +1,8 @@
+FROM {{ IMAGE_NAME }}
+
+ADD requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+ADD smoketest.py smoketest.py
+ENTRYPOINT ["python"]
+CMD ["smoketest.py"]

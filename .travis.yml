@@ -5,4 +5,8 @@ services:
 before_install:
 - docker -v
 - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
-script: make release-all
+install: make build-all
+script: make test-all
+deploy:
+- make tag-all
+- make push-all
