@@ -7,6 +7,6 @@ before_install:
 - docker login -e=$DOCKER_EMAIL -u=$DOCKER_USERNAME -p=$DOCKER_PASSWORD
 install: make build-all
 script: make test-all
-deploy:
+after_success:
 - make tag-all
 - make push-all
