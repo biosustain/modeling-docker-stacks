@@ -16,9 +16,7 @@ import requests
 def main(token, filepath):
     assert 'REPO_URL' in os.environ
     url = urljoin(os.environ['REPO_URL'], 'contents')
-    print(url)
     sha_url = urljoin(os.environ['REPO_URL'], 'git/blobs/{}')
-    print(sha_url)
     headers = {
         'Authorization': 'token {}'.format(token),
         'Accept': 'application/vnd.github.v3.raw'
@@ -27,6 +25,7 @@ def main(token, filepath):
     sha = [i for i in files_meta if i['path'] == filepath][0]['sha']
     response = requests.get(sha_url.format(sha), headers=headers, stream=True)
     with open(filepath, 'wb') as out_file:
+        response.raw.decode_content = True
         shutil.copyfileobj(response.raw, out_file)
 
 if __name__ == "__main__":
