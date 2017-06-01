@@ -14,3 +14,4 @@ RUN pip install -r /tmp/requirements.txt && \
 
 ENV REPO_URL="https://api.github.com/repos/biosustain/modeling-private-dependencies/"
 COPY load_dependency.py /opt/load_dependency.py
+ARG GITHUB_TOKEN

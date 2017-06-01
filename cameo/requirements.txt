@@ -1,1 +1,2 @@
 cameo==0.10.3
+python-libsbml==5.15.0
