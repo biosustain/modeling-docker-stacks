@@ -1,6 +1,6 @@
-OWNER:=biosustain
+OWNER:=dddecaf
 
-ALL_STACKS:=cameo cameo-solvers
+ALL_STACKS:=cobra-notebook
 
 ALL_IMAGES:=$(ALL_STACKS)
 

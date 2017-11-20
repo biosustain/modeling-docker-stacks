@@ -1,5 +1,5 @@
-cameo[all]==0.7.1
+cameo[all]==0.11.2
 biopython>=1.66
 joblib>=0.9.4
 driven
-git+https://github.com/cdanielmachado/framed.git@kai-branch#egg=framed
+framed
