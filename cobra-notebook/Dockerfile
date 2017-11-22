@@ -17,6 +17,8 @@ RUN /opt/conda/envs/python3.4/bin/pip install pip --upgrade
 RUN /opt/conda/envs/python3.4/bin/pip install -r requirements.txt
 RUN python -c "from matplotlib import pyplot"  # build font caches
 
+RUN pip uninstall -y bokeh
+RUN /opt/conda/envs/python3.4/bin/pip uninstall -y bokeh
 
 ADD templates/ /srv/templates/
 RUN chmod a+rX /srv/templates
